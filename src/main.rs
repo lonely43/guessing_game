@@ -1,4 +1,4 @@
-use std::io;
+use std::io::stdin;
 use std::cmp::Ordering;
 use rand::random_range;
 
@@ -12,7 +12,7 @@ fn main() {
         
         let mut guess = String::new();
 
-        io::stdin()
+        stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
 
@@ -30,6 +30,12 @@ fn main() {
             },
         }
     }
-    
-    println!("Secret number is {}", secret_number)
+
+    println!("Secret number is {}", secret_number);
+
+    println!("Press any key to close the programm");
+    let mut secret_number = String::new();
+    stdin()
+            .read_line(&mut secret_number)
+            .expect("Failed to read line");
 }
